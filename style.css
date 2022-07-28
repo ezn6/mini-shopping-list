@@ -86,6 +86,20 @@ body {
   overflow-y: scroll;
 }
 
+.items::-webkit-scrollbar {
+  width: 8px; /* 스크롤바의 너비 */
+}
+
+.items::-webkit-scrollbar-thumb {
+  height: 30%; /* 스크롤바의 길이 */
+  background: #7f7f7f; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.items::-webkit-scrollbar-track {
+  background: rgba(229, 232, 236, 0.5); /*스크롤바 뒷 배경 색상*/
+}
+
 .item {
   background-color: var(--color-white);
   display: flex;
