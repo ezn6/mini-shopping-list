@@ -12,7 +12,7 @@ function displayItems(items) {
 
 function createHTMLString(item) {
   return `
-  <li class="item">
+  <li class="item" data-type="${item.type}" data-color="${item.color}">
     <img src="${item.img}" alt="${item.type}" class="item__thumbnail" />
     <span class="item__description">${item.gender}, ${item.size}</span>
   </li>
@@ -31,8 +31,18 @@ function setEventListeners(items) {
     if (key == null || value == null) {
       return;
     }
-    const filtered = items.filter((item) => item[key] === value);
-    displayItems(filtered);
+    updateItems(key, value);
+  });
+}
+
+function updateItems(key, value) {
+  const items = document.querySelectorAll('.item');
+  items.forEach((item) => {
+    if (item.dataset[key] === value) {
+      item.classList.remove('invisible');
+    } else {
+      item.classList.add('invisible');
+    }
   });
 }
 
